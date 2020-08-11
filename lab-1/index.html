@@ -8,29 +8,27 @@
 </head>
 <body class="paper">
 	<div id="app">
-		<input type="number">
+		<input type="number" v-model="n">
 		<div class="space"></div>
-		<h3>สูตรคูณเเม่ {{number}}</h3>
 
-		<h4>{{number}} x 1 = x</h4>
-		<h4>{{number}} x 2 = x</h4>
-		<h4>{{number}} x 3 = x</h4>
-		<h4>{{number}} x 4 = x</h4>
-		<h4>{{number}} x 5 = x</h4>
-		<h4>{{number}} x 6 = x</h4>
-		<h4>{{number}} x 7 = x</h4>
-		<h4>{{number}} x 8 = x</h4>
-		<h4>{{number}} x 9 = x</h4>
-		<h4>{{number}} x 10 = x</h4>
-		<h4>{{number}} x 11 = x</h4>
-		<h4>{{number}} x 12 = x</h4>
+		<h3>สูตรคูณเเม่ {{n}}</h3>
+
+		<li v-for ="i in 12">
+			{{n}} x {{i}} = {{x(i)}}
+		</li>
 	</div>
 
 	<script>
 		let app = new Vue({
 			el: '#app',
 			data: {
-				number: 2
+				n: 2
+
+			},
+			methods : {
+				x: function(row){
+					return this.n*row
+				}
 			}
 		})
 	</script>
