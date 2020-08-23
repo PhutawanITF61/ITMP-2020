@@ -8,18 +8,20 @@
 </head>
 <body>
 	<div id="app">
-		About
+		<div class="box">
+		<h1>About</h1>
 		<h3>Username {{person.username}}</h3>
 		<h3>Name {{person.name}}</h3>
 		<h3>email {{person.email}}</h3>
 		<h3>website {{person.website}}</h3>
 		<h3>company {{person.company.name}}</h3>
-		<button @click="isthisgood">เขาเป็นสมาชิกกลุ่มที่ดีหรือไม่</button>
+		<button class="button" @click="isthisgood"><span>อายุน้อยกว่า 30 ปีใช่หรือไม่</span></button>
 		<h2>{{yesno.answer}}</h2>
 		<img :src="yesno.image" alt="">
-		Users
+		</div>
+		<h1>List of Users</h1>
 		<h2 v-for="u in users" :data-id="u.id" @click="viewBio(u)">
-			<img :src="`https://picsum.photos/id/${u.id}/200/300`" alt=""> 
+			<img :src="`https://picsum.photos/id/${u.id}/300/250`" alt=""> 
 			{{u.username}}</h2>
 	</div>
 	
@@ -39,7 +41,7 @@
 				viewBio: function(user){
 					this.person = user
 					this.yesno= {
-						"answer":"อยากรู้ คลิกเลย",
+						"answer":"คำตอบ",
 						"forced":false,
 						"image":""
 						}
@@ -56,7 +58,7 @@
 			data: {
 
 				yesno :{
-					"answer":"อยากรู้ คลิกเลย",
+					"answer":"คำตอบ",
 					"forced":false,
 					"image":""
 				},
